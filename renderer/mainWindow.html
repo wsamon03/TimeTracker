@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Activity Tracker</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+
+    <style>
+        .newItem {
+            width: 95%;
+            margin: auto;
+        }
+
+        .itemsList {
+            width: 95%;
+            margin: auto;
+            margin-top: 1em;
+        }
+
+        .item {
+            /*width: 95%;
+            margin: auto;*/
+            margin-top: 0.5em;
+            /*background-color: #fcfcfc;*/
+        }
+
+            .item.running {
+                background-color: wheat;
+            }
+
+            .item:hover {
+                background-color: lightsteelblue;
+            }
+    </style>
+</head>
+<body>
+    <h1>Activity Tracker</h1>
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-secondary" onclick="loadSavedActivities();">Load</button>
+        <button type="button" class="btn btn-secondary" onclick="loadMostRecentlySavedActivities();">Load Last</button>
+        <button type="button" class="btn btn-secondary" onclick="saveActivities();">Save</button>
+    </div>
+
+    <div class="accordion" id="newItemAccordion">
+        <div id='newItem' class='card border-0 newItem'>
+            <div class='card-header border' data-toggle="collapse" data-target="#newItemEntry" onclick="ShowHideNewItemEntry();">Add Activity</div>
+            <div id="newItemEntry" class="collapse" aria-labelledby="New Item Entry" data-parent="#newItemAccordion">
+                <form>
+                    <input id='newItemTitle' type='text' class='form-control' placeholder='activity' />
+                    <textarea id='newItemDescription' class='form-control' rows='2' placeholder='description'></textarea>
+                    <div id="newAndStartTask" class='btn btn-primary' onclick="createAndStartNewActivity(); clearNewItem();">Add & Start</div>
+                    <div id="newTask" class='btn btn-primary' onclick="createNewActivity(); clearNewItem();">Add</div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id='itemsList' class='card border-0 itemsList'>
+        <div class='card-header border'>Activities</div>
+        <div id='itemDisplay' class='itemDisplay' />
+    </div>
+
+    <script src='./mainWindow.js'></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script>
+        function ShowHideNewItemEntry() {
+            var nie = document.getElementById('newItemEntry');
+            if (nie.classList.contains('collapse')) {
+                nie.classList.remove('collapse');
+            }
+            else {
+                nie.classList.add('collapse');
+            }
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,1 @@
+Run with npm start from the TimeTracker directory
